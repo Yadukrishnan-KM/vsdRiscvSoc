@@ -2,10 +2,12 @@
 Contains projects, assignments, etc... related to Workshop on India's RISC-V program, Cohort 2. Aim is to design and tape out a  RISC-V reference chip using the SCL180 (Semi-Conductor Laboratory 180nm) CMOS process.
 ## Table of Contents
 - [Task1 - RISC-V Toolchain Setup Tasks & Uniqueness Test](#task1---risc-v-toolchain-setup-tasks--uniqueness-test)
+  - [1. Installation Steps](#1-installation-steps)
+  - [2. Errors Encountered, Causes, and Solutions](#2-errors-encountered-causes-and-solutions)
 
 # Task1 - RISC-V Toolchain Setup Tasks & Uniqueness Test
 
-Task 1 task is to setup the RISC-V tool chain and successfully compile and run a test program.
+Task 1 is to setup the RISC-V tool chain and successfully compile and run a test program.
 Here explaining all the steps to follow, errors faced, debug steps and final results.
 This project sets up a RISC-V development environment using the following tools:
 
@@ -17,6 +19,8 @@ This project sets up a RISC-V development environment using the following tools:
 My system specifications: Ubuntu 22.04 LTS, available disk space: >400GB
 
 The installation steps are mainly taken from the Task1 pdf file which shared and some places modified because of incompactability and version issues. The one which I successfully done in my PC, it is given below. 
+
+## 1. Installation Steps
 
 ### Step 1: Install Dependencies
 Added some missing libarries which not present in the pdf.
@@ -169,3 +173,115 @@ make -j$(nproc)
 sudo make install
 ```
 ![Cloned and build Icarus simulator](images/icarus.png)
+
+## 2. Errors Encountered, Causes, and Solutions
+
+Below are the errors faced during the Installation process, causes and how they resolved.
+
+### Error 1: `spike` Not Found
+
+- **Command**:
+
+  ```bash
+  which spike
+  ```
+- **Output**:
+
+  ```
+  Command 'spike' not found, did you mean:
+    command 'spine' from deb cacti-spine (1.2.19-1)
+    command 'spipe' from deb spiped (1.6.2-1)
+  Try: sudo apt install <deb name>
+  ```
+  - **Cause**:
+  - The Spike simulator was not installed.
+  - The `make install` step for `riscv-isa-sim` was either not run or failed.
+- **Solution**:
+  - Rebuilt and installed Spike
+  - Updated the 'PATH'
+
+### Error 2: `pk` Not Found After Installation
+
+- **Command**:
+
+  ```bash
+  which pk
+  ```
+- **Output**: No output.
+- **Cause**:
+  - The `pk` binary was in `~/riscv_toolchain/pk/riscv-none-elf/bin`, but the `PATH` did not include this directory. Incorrectly added `~/riscv_toolchain/pk/bin` to the `PATH`, which is not exist.
+- **Solution**:
+  - Updated the `PATH` to include the correct directory.
+    
+### Error 3: Spike Configure Fails with `libpthread` Missing
+
+- **Command**:
+  ```bash
+  cd ~/riscv_toolchain/riscv-isa-sim/build
+  ../configure --prefix=$HOME/riscv_toolchain/spike --host=riscv-none-elf --with-isa=rv64ima_zicsr_zifencei
+  make -j$(nproc)
+  make install
+  ```
+- **Output**:
+  ```
+  configure: WARNING: unrecognized options: --with-isa
+  ...
+  checking for pthread_create in -lpthread... no
+  configure: error: libpthread is required
+  make: *** No targets specified and no makefile found. Stop.
+  make: *** No rule to make target 'install'. Stop.
+  ```
+- **Cause**:
+  - The `libpthread` library (part of `libc6-dev`) was missing, causing the configure script to fail.
+- **Solution**:
+  - Installed `libc6-dev`:
+    ```bash
+    sudo apt-get update
+    sudo apt-get install -y libc6-dev
+    ```
+
+### Error 4: Compilation Errors for `unique_test.c`
+- **Command**:
+  ```bash
+  riscv-none-elf-gcc -O2 -Wall -march=rv64imac_zicsr_zifencei -mabi=lp64 -DUSERNAME="$(id -un)" -DHOSTNAME="$(hostname -s)" unique_test.c -o unique_test
+  ```
+- **Output**:
+  ```
+  unique_test.c: In function 'main':
+  <command-line>: error: 'thepasswordisiitdh123' undeclared (first use in this function)
+  unique_test.c:23:45: note: in expansion of macro 'USERNAME'
+     23 |     snprintf(input, sizeof(input), "%s@%s", USERNAME, HOSTNAME);
+        |                                             ^~~~~~~~
+  <command-line>: error: 'avinash' undeclared (first use in this function)
+  unique_test.c:23:55: note: in expansion of macro 'HOSTNAME'
+     23 |     snprintf(input, sizeof(input), "%s@%s", USERNAME, HOSTNAME);
+        |                                                       ^~~~~~~~
+  ...
+  unique_test.c:28:31: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 2 has type 'uint64_t' {aka 'long unsigned int'} [-Wformat=]
+  ```
+- **Cause**:
+  - **Undeclared Identifiers**: The `-DUSERNAME="$(id -un)"` and `-DHOSTNAME="$(hostname -s)"` flags passed unquoted strings
+  - **Format Specifier Warning**: The `printf` format `%llx` was incorrect
+- **Solution**:
+  - Modified `unique_test.c` to use `%lx`:
+  - Used quoted macro definitions:
+
+### Error 5: `Specified ELF can't be mapped: No such device`
+
+- **Command**:
+  ```bash
+  spike pk ./unique_test
+  ```
+- **Output**:
+  ```
+  terminate called after throwing an instance of 'std::invalid_argument'
+    what():  Specified ELF can't be mapped: No such device
+  ```
+- **Cause**:
+  - Spike failed to load the `pk` or `unique_test` ELF binary due to:
+    - **Compressed Instructions (RVC)**: Both `pk` and `unique_test` used `-march=rv64imac_zicsr_zifencei`, including `RVC`, which was not fully supported by Spike or `pk`.
+    - **ISA Mismatch**: The binaries’ ISA did not align with Spike’s runtime ISA.
+    - **Memory Configuration**: The memory layout (`MEM_START=0x80000000`) was not specified in the Spike command.
+- **Solution**:
+  - Rebuilt `pk` and `unique_test` without `RVC` using `-march=rv64ima_zicsr_zifencei`
+  - Ran Spike with explicit ISA and memory settings
