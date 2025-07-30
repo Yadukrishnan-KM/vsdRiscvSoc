@@ -3,8 +3,8 @@ Contains projects, assignments, etc... related to Workshop on India's RISC-V pro
 ## Table of Contents
 - [Task1 - RISC-V Toolchain Setup Tasks & Uniqueness Test](#task1---risc-v-toolchain-setup-tasks--uniqueness-test)
   - [1. Installation Steps](#1-installation-steps)
-    - [1.1 unique_test.c Output](#11-unique_testc-output)
-  - [2. Errors Encountered, Causes, and Solutions](#2-errors-encountered-causes-and-solutions)
+  - [2. Unique Test](#2-a-unique-test)
+  - [3. Errors Encountered, Causes, and Solutions](#3-errors-encountered-causes-and-solutions)
 
 # Task1 - RISC-V Toolchain Setup Tasks & Uniqueness Test
 
@@ -175,7 +175,7 @@ sudo make install
 ```
 ![Cloned and build Icarus simulator](images/task1/icarus.png)
 
-### A Unique Test
+### 2. A Unique Test
 
 Testing the setups using a sample program. The program will take input as USERNAME and HOSTNAME and then produce a unique number.
 
@@ -250,7 +250,7 @@ GCC_VLEN: 6
 
 ![Final Output](images/task1/output.png)
 
-## 2. Errors Encountered, Causes, and Solutions
+## 3. Errors Encountered, Causes, and Solutions
 
 Below are the errors faced during the Installation process, causes and how they resolved.
 
