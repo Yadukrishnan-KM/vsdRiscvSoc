@@ -3,7 +3,7 @@ Contains projects, assignments, etc... related to Workshop on India's RISC-V pro
 ## Table of Contents
 - [Task1 - RISC-V Toolchain Setup Tasks & Uniqueness Test](#task1---risc-v-toolchain-setup-tasks--uniqueness-test)
   - [1. Installation Steps](#1-installation-steps)
-    -[1.1 unique_test.c Output](#-a-unique-test)
+    - [1.1 unique_test.c Output](#11-unique_testc-output)
   - [2. Errors Encountered, Causes, and Solutions](#2-errors-encountered-causes-and-solutions)
 
 # Task1 - RISC-V Toolchain Setup Tasks & Uniqueness Test
@@ -148,13 +148,13 @@ file ~/riscv_toolchain/pk/riscv-none-elf/bin/pk
 Final confirmation of all tools which we installed above
 
 ```bash
-which riscv64-unknown-elf-gcc
-riscv64-unknown-elf-gcc -v
+which riscv-none-elf-gcc
+riscv-none-elf-gcc --version
 which pk
 which spike
 spike -h
 ```
-![Tools verification](images/task1/verifiedFinal.png)
+![Tools verification](images/task1/FinalCheck.png)
 
 
 ### Step 7: Install Icarus Verilog
