@@ -3,6 +3,7 @@ Contains projects, assignments, etc... related to Workshop on India's RISC-V pro
 ## Table of Contents
 - [Task1 - RISC-V Toolchain Setup Tasks & Uniqueness Test](#task1---risc-v-toolchain-setup-tasks--uniqueness-test)
   - [1. Installation Steps](#1-installation-steps)
+    -[1.1 unique_test.c Output](#-a-unique-test)
   - [2. Errors Encountered, Causes, and Solutions](#2-errors-encountered-causes-and-solutions)
 
 # Task1 - RISC-V Toolchain Setup Tasks & Uniqueness Test
@@ -173,6 +174,81 @@ make -j$(nproc)
 sudo make install
 ```
 ![Cloned and build Icarus simulator](images/icarus.png)
+
+### A Unique Test
+
+Testing the setups using a sample program. The program will take input as USERNAME and HOSTNAME and then produce a unique number.
+
+First creating a sample program named 'unique_test.c'
+
+```
+#include <stdint.h>
+#include <stdio.h>
+#ifndef USERNAME
+#define USERNAME "unknown_user"
+#endif
+#ifndef HOSTNAME
+#define HOSTNAME "unknown_host"
+#endif
+// 64-bit FNV-1a
+static uint64_t fnv1a64(const char *s) {
+const uint64_t FNV_OFFSET = 1469598103934665603ULL;
+const uint64_t FNV_PRIME = 1099511628211ULL;
+uint64_t h = FNV_OFFSET;
+for (const unsigned char *p = (const unsigned char*)s; *p; ++p) {
+h ^= (uint64_t)(*p);
+h *= FNV_PRIME;
+}
+return h;
+}
+int main(void) {
+const char *user = USERNAME;
+const char *host = HOSTNAME;
+char buf[256];
+int n = snprintf(buf, sizeof(buf), "%s@%s", user, host);
+if (n <= 0) return 1;
+uint64_t uid = fnv1a64(buf);
+printf("RISC-V Uniqueness Check\n");
+printf("User: %s\n", user);
+printf("Host: %s\n", host);
+printf("UniqueID: 0x%016llx\n", (unsigned long long)uid);
+#ifdef __VERSION__
+unsigned long long vlen = (unsigned long long)sizeof(__VERSION__) -
+1;
+printf("GCC_VLEN: %llu\n", vlen);
+#endif
+return 0;
+}
+```
+
+![CprogramFile](images/madeCfile.png)
+
+Open terminal on the folder and execute given commands.
+
+```bash
+riscv-none-elf-gcc -O2 -Wall -march=rv64ima -mabi=lp64 -DUSERNAME=\"Yadu\" -DHOSTNAME=\"HP_pc\" unique_test.c -o unique_test
+spike ~/riscv_toolchain/pk/riscv-none-elf/bin/pk ./unique_test
+```
+
+![Compilation](images/compilationDone.png)
+
+Give the excat location of pk.
+
+```bash
+spike ~/riscv_toolchain/pk/riscv-none-elf/bin/pk ./unique_test
+```
+
+Output
+
+```
+RISC-V Uniqueness Check
+User: Yadu
+Host: HP_pc
+UniqueID: 0x25f9d0de68deed86
+GCC_VLEN: 6
+```
+
+![Final Output](images/output.png)
 
 ## 2. Errors Encountered, Causes, and Solutions
 
