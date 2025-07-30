@@ -34,7 +34,7 @@ Open terminal from the Home location.
 sudo apt-get update
 sudo apt-get install -y autoconf automake autotools-dev curl python3 python3-pip libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build git cmake libglib2.0-dev libboost-dev device-tree-compiler libc6-dev
 ```
-![Dependencies installed](images/installedDependencies.png)
+![Dependencies installed](images/task1/installedDependencies.png)
 
 ### Step 2: Create Installation Directory
 Set up a directory for the toolchain components and change terminal directory to the newly generated folder:
@@ -43,7 +43,7 @@ Set up a directory for the toolchain components and change terminal directory to
 mkdir -p ~/riscv_toolchain
 cd ~/riscv_toolchain
 ```
-![Installatio directory created](images/installationDirectoryCreated.png)
+![Installatio directory created](images/task1/installationDirectoryCreated.png)
 
 ### Step 3: Install RISC-V GNU Toolchain
 
@@ -56,7 +56,7 @@ tar -xvf xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz
 mv xpack-riscv-none-elf-gcc-13.2.0-2 riscv64-none-elf-gcc
 rm xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz
 ```
-![Cloned and build RISC-V tool chain](images/clonedRISCvToolChain.png)
+![Cloned and build RISC-V tool chain](images/task1/clonedRISCvToolChain.png)
 
 Add to PATH:
 
@@ -65,7 +65,7 @@ export PATH=$HOME/riscv_toolchain/riscv64-none-elf-gcc/bin:$PATH
 echo "export PATH=$HOME/riscv_toolchain/riscv64-none-elf-gcc/bin:\$PATH" >> ~/.bashrc
 source ~/.bashrc
 ```
-![Path added for RISC-V toolchain](images/pathRiscVtoolChain.png)
+![Path added for RISC-V toolchain](images/task1/pathRiscVtoolChain.png)
 
 Verify:
 
@@ -73,7 +73,7 @@ Verify:
 which riscv-none-elf-gcc
 riscv-none-elf-gcc --version
 ```
-![Verified RISC-V toolchain](images/verifiedRiscVtoolChain.png)
+![Verified RISC-V toolchain](images/task1/verifiedRiscVtoolChain.png)
 
 ### Step 4: Install Spike Simulator
 
@@ -89,7 +89,7 @@ cd build
 make -j$(nproc)
 make install
 ```
-![Cloned and build spike simulator](images/clonedSpike.png)
+![Cloned and build spike simulator](images/task1/clonedSpike.png)
 
 Add to PATH:
 
@@ -98,7 +98,7 @@ export PATH=$HOME/riscv_toolchain/spike/bin:$PATH
 echo "export PATH=$HOME/riscv_toolchain/spike/bin:\$PATH" >> ~/.bashrc
 source ~/.bashrc
 ```
-![Path added for spike simulator](images/pathSpike.png)
+![Path added for spike simulator](images/task1/pathSpike.png)
 
 Verify:
 
@@ -106,7 +106,7 @@ Verify:
 which spike
 spike -h
 ```
-![Verified spike simulator](images/verifiedSpike.png)
+![Verified spike simulator](images/task1/verifiedSpike.png)
 
 ### Step 5: Install RISC-V Proxy Kernel (PK)
 
@@ -124,7 +124,7 @@ cd build
 make CFLAGS="-march=rv64ima_zicsr_zifencei -mabi=lp64 -O2 -std=gnu99 -Wall -D__NO_INLINE__ -mcmodel=medany -fno-delete-null-pointer-checks -fno-PIE -fno-stack-protector -U_FORTIFY_SOURCE -DMEM_START=0x80000000"
 make install
 ```
-![Cloned and build pk simulator](images/pk.png)
+![Cloned and build pk simulator](images/task1/pk.png)
 
 Add to PATH:
 
@@ -133,7 +133,7 @@ export PATH=$HOME/riscv_toolchain/pk/riscv-none-elf/bin:$PATH
 echo "export PATH=$HOME/riscv_toolchain/pk/riscv-none-elf/bin:\$PATH" >> ~/.bashrc
 source ~/.bashrc
 ```
-![Path added for pk simulator](images/pathPk.png)
+![Path added for pk simulator](images/task1/pathPk.png)
 
 Verify:
 
@@ -141,7 +141,7 @@ Verify:
 which pk
 file ~/riscv_toolchain/pk/riscv-none-elf/bin/pk
 ```
-![Verified pksimulator](images/verifiedPk.png)
+![Verified pksimulator](images/task1/verifiedPk.png)
 
 ### Step 6: Final Sanity Check
 
@@ -154,7 +154,7 @@ which pk
 which spike
 spike -h
 ```
-![Tools verification](images/verifiedFinal.png)
+![Tools verification](images/task1/verifiedFinal.png)
 
 
 ### Step 7: Install Icarus Verilog
@@ -173,7 +173,7 @@ chmod +x autoconf.sh
 make -j$(nproc)
 sudo make install
 ```
-![Cloned and build Icarus simulator](images/icarus.png)
+![Cloned and build Icarus simulator](images/task1/icarus.png)
 
 ### A Unique Test
 
@@ -221,7 +221,7 @@ return 0;
 }
 ```
 
-![CprogramFile](images/madeCfile.png)
+![CprogramFile](images/task1/madeCfile.png)
 
 Open terminal on the folder and execute given commands.
 
@@ -230,7 +230,7 @@ riscv-none-elf-gcc -O2 -Wall -march=rv64ima -mabi=lp64 -DUSERNAME=\"Yadu\" -DHOS
 spike ~/riscv_toolchain/pk/riscv-none-elf/bin/pk ./unique_test
 ```
 
-![Compilation](images/compilationDone.png)
+![Compilation](images/task1/compilationDone.png)
 
 Give the excat location of pk.
 
@@ -248,7 +248,7 @@ UniqueID: 0x25f9d0de68deed86
 GCC_VLEN: 6
 ```
 
-![Final Output](images/output.png)
+![Final Output](images/task1/output.png)
 
 ## 2. Errors Encountered, Causes, and Solutions
 
