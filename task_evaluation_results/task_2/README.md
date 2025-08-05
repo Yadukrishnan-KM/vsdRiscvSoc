@@ -19,7 +19,7 @@ The files are attached here.
 - [bubble_sort.c](bubble_sort.c)
 - [max_array.c](max_array.c)
 
-![../images/task2/allFilesMade.png](../images/task2/allFilesMade.png)
+![../../images/task2/allFilesMade.png](../../images/task2/allFilesMade.png)
 
 ### Step 2: Setting the identity variables
 
@@ -31,7 +31,7 @@ export T=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 export E=$(date +%s)
 ```
 
-![../images/task2/identityVariablesSet.png](../images/task2/identityVariablesSet.png)
+![../../images/task2/identityVariablesSet.png](../../images/task2/identityVariablesSet.png)
 
 ### Step 3: Checking the version of tool chain and simulator
 
@@ -43,7 +43,7 @@ Here we are just checking the version of tool chain and simulator to verify the 
 riskv-none-elf-gcc --version
 ```
 
-![../images/task2/gcc_test.png](../images/task2/gcc_test.png)
+![../../images/task2/gcc_test.png](../../images/task2/gcc_test.png)
 
 - Simulator version
   
@@ -51,7 +51,7 @@ riskv-none-elf-gcc --version
 spike -h
 ```
 
-![../images/task2/spike_test.png](../images/task2/spike_test.png)
+![../../images/task2/spike_test.png](../../images/task2/spike_test.png)
 
 ## 2. Build, run, produce assembly and disassembly
 
@@ -69,28 +69,28 @@ riscv-none-elf-gcc -O0 -g -march=rv64ima -mabi=lp64 \
 -DBUILD_UTC="\"$T\"" -DBUILD_EPOCH=$E \
 factorial.c -o factorial
 ```
-![../images/task2/factorial_compile.png](../images/task2/factorial_compile.png)
+![../../images/task2/factorial_compile.png](../../images/task2/factorial_compile.png)
 
 - **Run (factorial.c)**
 
 ``` bash
 spike ~/riscv_toolchain/pk/riscv-none-elf/bin/pk ./factorial
 ```
-![../images/task2/factorial_run.png](../images/task2/factorial_run.png)
+![../../images/task2/factorial_run.png](../../images/task2/factorial_run.png)
 
 - **Assembly (factorial.c)**
 
 ``` bash
 riscv-none-elf-gcc -O0 -S factorial.c -o factorial.s
 ```
-![../images/task2/factorial_assembly.png](../images/task2/factorial_assembly.png)
+![../../images/task2/factorial_assembly.png](../../images/task2/factorial_assembly.png)
 
 - **Disassembly (factorial.c)**
 
 ``` bash
 riscv-none-elf-objdump -d ./factorial | sed -n '/<main>:/,/^$/p' | tee factorial_main_objdump.txt
 ```
-![../images/task2/factorial_disassembly.png](../images/task2/factorial_disassembly.png)
+![../../images/task2/factorial_disassembly.png](../../images/task2/factorial_disassembly.png)
 
 ### 2. bitops.c
 
@@ -102,28 +102,28 @@ riscv-none-elf-gcc -O0 -g -march=rv64ima -mabi=lp64 \
 -DBUILD_UTC="\"$T\"" -DBUILD_EPOCH=$E \
 bitops.c -o bitops
 ```
-![../images/task2/bitops_compile.png](../images/task2/bitops_compile.png)
+![../images/task2/bitops_compile.png](../../images/task2/bitops_compile.png)
 
 - **Run (bitops.c)**
 
 ``` bash
 spike ~/riscv_toolchain/pk/riscv-none-elf/bin/pk ./bitops
 ```
-![../images/task2/bitops_run.png](../images/task2/bitops_run.png)
+![../../images/task2/bitops_run.png](../../images/task2/bitops_run.png)
 
 - **Assembly (bitops.c)**
 
 ``` bash
 riscv-none-elf-gcc -O0 -S bitops.c -o bitops.s
 ```
-![../images/task2/bitops_assembly.png](../images/task2/bitops_assembly.png)
+![../../images/task2/bitops_assembly.png](../../images/task2/bitops_assembly.png)
 
 - **Disassembly (bitops.c)**
 
 ``` bash
 riscv-none-elf-objdump -d ./bitops | sed -n '/<main>:/,/^$/p' | tee bitops_main_objdump.txt
 ```
-![../images/task2/bitops_disassembly.png](../images/task2/bitops_disassembly.png)
+![../../images/task2/bitops_disassembly.png](../../images/task2/bitops_disassembly.png)
 
 ### 3. bubble_sort.c
 
@@ -135,28 +135,28 @@ riscv-none-elf-gcc -O0 -g -march=rv64ima -mabi=lp64 \
 -DBUILD_UTC="\"$T\"" -DBUILD_EPOCH=$E \
 bubble_sort.c -o bubble_sort
 ```
-![../images/task2/bubble_sort_compile.png](../images/task2/bubble_sort_compile.png)
+![../../images/task2/bubble_sort_compile.png](../../images/task2/bubble_sort_compile.png)
 
 - **Run (bubble_sort.c)**
 
 ``` bash
 spike ~/riscv_toolchain/pk/riscv-none-elf/bin/pk ./bubble_sort
 ```
-![../images/task2/bubble_sort_run.png](../images/task2/bubble_sort_run.png)
+![../../images/task2/bubble_sort_run.png](../../images/task2/bubble_sort_run.png)
 
 - **Assembly (bubble_sort.c)**
 
 ``` bash
 riscv-none-elf-gcc -O0 -S bubble_sort.c -o bubble_sort.s
 ```
-![../images/task2/bubble_sort_assembly.png](../images/task2/bubble_sort_assembly.png)
+![../../images/task2/bubble_sort_assembly.png](../../images/task2/bubble_sort_assembly.png)
 
 - **Disassembly (bubble_sort.c)**
 
 ``` bash
 riscv-none-elf-objdump -d ./bubble_sort | sed -n '/<main>:/,/^$/p' | tee bubble_sort_main_objdump.txt
 ```
-![../images/task2/bubble_sort_disassembly.png](../images/task2/bubble_sort_disassembly.png)
+![../../images/task2/bubble_sort_disassembly.png](../../images/task2/bubble_sort_disassembly.png)
 
 ### 4. max_array.c
 
@@ -168,28 +168,28 @@ riscv-none-elf-gcc -O0 -g -march=rv64ima -mabi=lp64 \
 -DBUILD_UTC="\"$T\"" -DBUILD_EPOCH=$E \
 max_array.c -o max_array
 ```
-![../images/task2/max_array_compile.png](../images/task2/max_array_compile.png)
+![../../images/task2/max_array_compile.png](../../images/task2/max_array_compile.png)
 
 - **Run (max_array.c)**
 
 ``` bash
 spike ~/riscv_toolchain/pk/riscv-none-elf/bin/pk ./max_array
 ```
-![../images/task2/max_array_run.png](../images/task2/max_array_run.png)
+![../../images/task2/max_array_run.png](../../images/task2/max_array_run.png)
 
 - **Assembly (max_array.c)**
 
 ``` bash
 riscv-none-elf-gcc -O0 -S max_array.c -o max_array.s
 ```
-![../images/task2/max_array_assembly.png](../images/task2/max_array_assembly.png)
+![../../images/task2/max_array_assembly.png](../../images/task2/max_array_assembly.png)
 
 - **Disassembly (max_array.c)**
 
 ``` bash
 riscv-none-elf-objdump -d ./max_array | sed -n '/<main>:/,/^$/p' | tee max_array_main_objdump.txt
 ```
-![../images/task2/max_array_disassembly.png](../images/task2/max_array_disassembly.png)
+![../../images/task2/max_array_disassembly.png](../../images/task2/max_array_disassembly.png)
 
 ## 3. Instruction decoding (integer type)
 Here we are decoding some RISC-V integer instructions from the `.s` or `.objdump` file. The below table contains all the decoded values.
