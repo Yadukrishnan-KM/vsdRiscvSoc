@@ -5,6 +5,11 @@ Contains projects, assignments, etc... related to Workshop on India's RISC-V pro
   - [1. Installation Steps](#1-installation-steps)
   - [2. Unique Test](#2-a-unique-test)
   - [3. Errors Encountered, Causes, and Solutions](#3-errors-encountered-causes-and-solutions)
+- [Task 2 - Prove Your Local RISC-V Setup (Run, Disassemble, Decode)](task_evaluation_results/task_2/README.md/#task2---prove-your-local-risc-v-setup-run-disassemble-decode)
+  - [1. Setting up](task_evaluation_results/task_2/README.md/#1-setting-up)
+  - [2. Build, run, produce assembly and disassembly](task_evaluation_results/task_2/README.md/#2-build-run-produce-assembly-and-disassembly)
+  - [3. Instruction decoding (integer type)](task_evaluation_results/task_2/README.md/#3-instruction-decoding-integer-type)
+  - [4. Final results](task_evaluation_results/task_2/README.md/#4-final-results)
 
 # Task1 - RISC-V Toolchain Setup Tasks & Uniqueness Test
 
