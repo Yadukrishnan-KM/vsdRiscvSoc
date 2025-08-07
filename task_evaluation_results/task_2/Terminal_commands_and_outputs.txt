@@ -1,0 +1,431 @@
+################################################  Commands done on terminal ####################################################
+
+export U=$(id -un)
+export H=$(hostname -s)
+export M=$(cat /etc/machine-id | head -c 16)
+export T=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+export E=$(date +%s)
+
+================================================================================================
+
+riscv-none-elf-gcc -O0 -g -march=rv64ima -mabi=lp64 \
+-DUSERNAME="\"$U\"" -DHOSTNAME="\"$H\"" -DMACHINE_ID="\"$M\"" \
+-DBUILD_UTC="\"$T\"" -DBUILD_EPOCH=$E \
+factorial.c -o factorial
+
+spike ~/riscv_toolchain/pk/riscv-none-elf/bin/pk ./factorial
+
+riscv-none-elf-gcc -O0 -S factorial.c -o factorial.s
+
+riscv-none-elf-objdump -d ./factorial | sed -n '/<main>:/,/^$/p' | tee factorial_main_objdump.txt
+=================================================================================================
+
+riscv-none-elf-gcc -O0 -g -march=rv64ima -mabi=lp64 \
+-DUSERNAME="\"$U\"" -DHOSTNAME="\"$H\"" -DMACHINE_ID="\"$M\"" \
+-DBUILD_UTC="\"$T\"" -DBUILD_EPOCH=$E \
+bitops.c -o bitops
+
+spike ~/riscv_toolchain/pk/riscv-none-elf/bin/pk ./bitops
+
+riscv-none-elf-gcc -O0 -S bitops.c -o bitops.s
+
+riscv-none-elf-objdump -d ./bitops | sed -n '/<main>:/,/^$/p' | tee bitops_main_objdump.txt
+==================================================================================================
+
+riscv-none-elf-gcc -O0 -g -march=rv64ima -mabi=lp64 \
+-DUSERNAME="\"$U\"" -DHOSTNAME="\"$H\"" -DMACHINE_ID="\"$M\"" \
+-DBUILD_UTC="\"$T\"" -DBUILD_EPOCH=$E \
+bubble_sort.c -o bubble_sort
+
+spike ~/riscv_toolchain/pk/riscv-none-elf/bin/pk ./bubble_sort
+
+riscv-none-elf-gcc -O0 -S bubble_sort.c -o bubble_sort.s
+
+riscv-none-elf-objdump -d ./bubble_sort | sed -n '/<main>:/,/^$/p' | tee bubble_sort_main_objdump.txt
+==================================================================================================
+
+riscv-none-elf-gcc -O0 -g -march=rv64ima -mabi=lp64 \
+-DUSERNAME="\"$U\"" -DHOSTNAME="\"$H\"" -DMACHINE_ID="\"$M\"" \
+-DBUILD_UTC="\"$T\"" -DBUILD_EPOCH=$E \
+max_array.c -o max_array
+
+spike ~/riscv_toolchain/pk/riscv-none-elf/bin/pk ./max_array
+
+riscv-none-elf-gcc -O0 -S max_array.c -o max_array.s
+
+riscv-none-elf-objdump -d ./max_array | sed -n '/<main>:/,/^$/p' | tee max_array_main_objdump.txt
+
+
+
+
+############################################################################################################################################################
+################################################################  Terminal Outputs #########################################################################
+
+=== RISC-V Proof Header ===
+User: thepasswordisiitdh123
+Host: avinash-HP-Elite-Tower-600-G9-Desktop-PC
+MachineID : bc9fb55347374165
+BuildUTC : 2025-08-04T15:00:59Z
+BuildEpoch : 1754319659
+GCC: 13.2.0
+PointerBits: 64
+Program: factorial
+ProofID: 0x77e1fe16d5228fe3
+RunID: 0x104315ec801cdda9
+===========================
+n=12, n!=479001600
+
+=====================================================================================================================================
+
+0000000000010474 <main>:
+   10474:	fe010113          	add	sp,sp,-32
+   10478:	00113c23          	sd	ra,24(sp)
+   1047c:	00813823          	sd	s0,16(sp)
+   10480:	02010413          	add	s0,sp,32
+   10484:	000247b7          	lui	a5,0x24
+   10488:	fb078513          	add	a0,a5,-80 # 23fb0 <__clzdi2+0x224>
+   1048c:	de1ff0ef          	jal	1026c <uniq_print_header>
+   10490:	00c00793          	li	a5,12
+   10494:	fef42623          	sw	a5,-20(s0)
+   10498:	fec42783          	lw	a5,-20(s0)
+   1049c:	00078513          	mv	a0,a5
+   104a0:	f69ff0ef          	jal	10408 <fact>
+   104a4:	00050713          	mv	a4,a0
+   104a8:	fec42783          	lw	a5,-20(s0)
+   104ac:	00070613          	mv	a2,a4
+   104b0:	00078593          	mv	a1,a5
+   104b4:	000247b7          	lui	a5,0x24
+   104b8:	fc078513          	add	a0,a5,-64 # 23fc0 <__clzdi2+0x234>
+   104bc:	5b4000ef          	jal	10a70 <printf>
+   104c0:	00000793          	li	a5,0
+   104c4:	00078513          	mv	a0,a5
+   104c8:	01813083          	ld	ra,24(sp)
+   104cc:	01013403          	ld	s0,16(sp)
+   104d0:	02010113          	add	sp,sp,32
+   104d4:	00008067          	ret
+
+=====================================================================================================================================
+
+=== RISC-V Proof Header ===
+User: thepasswordisiitdh123
+Host: avinash-HP-Elite-Tower-600-G9-Desktop-PC
+MachineID : bc9fb55347374165
+BuildUTC : 2025-08-05T09:25:11Z
+BuildEpoch : 1754385911
+GCC: 13.2.0
+PointerBits: 64
+Program: bitops
+ProofID: 0x8d303b6ff258823c
+RunID: 0x08ae80b3d023d58a
+===========================
+x&y=0x05050024
+x|y=0xAFAFB7B5
+x^y=0xAAAAB791
+x<<3=0x2D2D2D28
+y>>2=0x03C3C48D
+
+=====================================================================================================================================
+
+=== RISC-V Proof Header ===
+User: thepasswordisiitdh123
+Host: avinash-HP-Elite-Tower-600-G9-Desktop-PC
+MachineID : bc9fb55347374165
+BuildUTC : 2025-08-05T09:25:11Z
+BuildEpoch : 1754385911
+GCC: 13.2.0
+PointerBits: 64
+Program: bitops
+ProofID: 0x8d303b6ff258823c
+RunID: 0x08ae80b3d023d58a
+===========================
+x&y=0x05050024
+x|y=0xAFAFB7B5
+x^y=0xAAAAB791
+x<<3=0x2D2D2D28
+y>>2=0x03C3C48D
+
+=====================================================================================================================================
+
+0000000000010408 <main>:
+   10408:	fe010113          	add	sp,sp,-32
+   1040c:	00113c23          	sd	ra,24(sp)
+   10410:	00813823          	sd	s0,16(sp)
+   10414:	02010413          	add	s0,sp,32
+   10418:	000247b7          	lui	a5,0x24
+   1041c:	fd078513          	add	a0,a5,-48 # 23fd0 <__clzdi2+0x224>
+   10420:	e4dff0ef          	jal	1026c <uniq_print_header>
+   10424:	a5a5a7b7          	lui	a5,0xa5a5a
+   10428:	5a578793          	add	a5,a5,1445 # ffffffffa5a5a5a5 <__BSS_END__+0xffffffffa5a32f0d>
+   1042c:	fef42623          	sw	a5,-20(s0)
+   10430:	0f0f17b7          	lui	a5,0xf0f1
+   10434:	23478793          	add	a5,a5,564 # f0f1234 <__BSS_END__+0xf0c9b9c>
+   10438:	fef42423          	sw	a5,-24(s0)
+   1043c:	fec42783          	lw	a5,-20(s0)
+   10440:	00078713          	mv	a4,a5
+   10444:	fe842783          	lw	a5,-24(s0)
+   10448:	00f777b3          	and	a5,a4,a5
+   1044c:	0007879b          	sext.w	a5,a5
+   10450:	00078593          	mv	a1,a5
+   10454:	000247b7          	lui	a5,0x24
+   10458:	fd878513          	add	a0,a5,-40 # 23fd8 <__clzdi2+0x22c>0000000000010408 <main>:
+   10408:	fe010113          	add	sp,sp,-32
+   1040c:	00113c23          	sd	ra,24(sp)
+   10410:	00813823          	sd	s0,16(sp)
+   10414:	02010413          	add	s0,sp,32
+   10418:	000247b7          	lui	a5,0x24
+   1041c:	fd078513          	add	a0,a5,-48 # 23fd0 <__clzdi2+0x224>
+   10420:	e4dff0ef          	jal	1026c <uniq_print_header>
+   10424:	a5a5a7b7          	lui	a5,0xa5a5a
+   10428:	5a578793          	add	a5,a5,1445 # ffffffffa5a5a5a5 <__BSS_END__+0xffffffffa5a32f0d>
+   1042c:	fef42623          	sw	a5,-20(s0)
+   10430:	0f0f17b7          	lui	a5,0xf0f1
+   10434:	23478793          	add	a5,a5,564 # f0f1234 <__BSS_END__+0xf0c9b9c>
+   10438:	fef42423          	sw	a5,-24(s0)
+   1043c:	fec42783          	lw	a5,-20(s0)
+   10440:	00078713          	mv	a4,a5
+   10444:	fe842783          	lw	a5,-24(s0)
+   10448:	00f777b3          	and	a5,a4,a5
+   1044c:	0007879b          	sext.w	a5,a5
+   10450:	00078593          	mv	a1,a5
+   10454:	000247b7          	lui	a5,0x24
+   10458:	fd878513          	add	a0,a5,-40 # 23fd8 <__clzdi2+0x22c>
+   1045c:	634000ef          	jal	10a90 <printf>
+   10460:	fec42783          	lw	a5,-20(s0)
+   10464:	00078713          	mv	a4,a5
+   10468:	fe842783          	lw	a5,-24(s0)
+   1046c:	00f767b3          	or	a5,a4,a5
+   10470:	0007879b          	sext.w	a5,a5
+   10474:	00078593          	mv	a1,a5
+   10478:	000247b7          	lui	a5,0x24
+   1047c:	fe878513          	add	a0,a5,-24 # 23fe8 <__clzdi2+0x23c>
+   10480:	610000ef          	jal	10a90 <printf>
+   10484:	fec42783          	lw	a5,-20(s0)
+   10488:	00078713          	mv	a4,a5
+   1048c:	fe842783          	lw	a5,-24(s0)
+   10490:	00f747b3          	xor	a5,a4,a5
+   10494:	0007879b          	sext.w	a5,a5
+   10498:	00078593          	mv	a1,a5
+   1049c:	000247b7          	lui	a5,0x24
+   104a0:	ff878513          	add	a0,a5,-8 # 23ff8 <__clzdi2+0x24c>
+   104a4:	5ec000ef          	jal	10a90 <printf>
+   104a8:	fec42783          	lw	a5,-20(s0)
+   104ac:	0037979b          	sllw	a5,a5,0x3
+   104b0:	0007879b          	sext.w	a5,a5
+   104b4:	00078593          	mv	a1,a5
+   104b8:	000247b7          	lui	a5,0x24
+   104bc:	00878513          	add	a0,a5,8 # 24008 <__clzdi2+0x25c>
+   104c0:	5d0000ef          	jal	10a90 <printf>
+   104c4:	fe842783          	lw	a5,-24(s0)
+   104c8:	0027d79b          	srlw	a5,a5,0x2
+   104cc:	0007879b          	sext.w	a5,a5
+   104d0:	00078593          	mv	a1,a5
+   104d4:	000247b7          	lui	a5,0x24
+   104d8:	01878513          	add	a0,a5,24 # 24018 <__clzdi2+0x26c>
+   104dc:	5b4000ef          	jal	10a90 <printf>
+   104e0:	00000793          	li	a5,0
+   104e4:	00078513          	mv	a0,a5
+   104e8:	01813083          	ld	ra,24(sp)
+   104ec:	01013403          	ld	s0,16(sp)
+   104f0:	02010113          	add	sp,sp,32
+   104f4:	00008067          	ret
+
+   1045c:	634000ef          	jal	10a90 <printf>
+   10460:	fec42783          	lw	a5,-20(s0)
+   10464:	00078713          	mv	a4,a5
+   10468:	fe842783          	lw	a5,-24(s0)
+   1046c:	00f767b3          	or	a5,a4,a5
+   10470:	0007879b          	sext.w	a5,a5
+   10474:	00078593          	mv	a1,a5
+   10478:	000247b7          	lui	a5,0x24
+   1047c:	fe878513          	add	a0,a5,-24 # 23fe8 <__clzdi2+0x23c>
+   10480:	610000ef          	jal	10a90 <printf>
+   10484:	fec42783          	lw	a5,-20(s0)
+   10488:	00078713          	mv	a4,a5
+   1048c:	fe842783          	lw	a5,-24(s0)
+   10490:	00f747b3          	xor	a5,a4,a5
+   10494:	0007879b          	sext.w	a5,a5
+   10498:	00078593          	mv	a1,a5
+   1049c:	000247b7          	lui	a5,0x24
+   104a0:	ff878513          	add	a0,a5,-8 # 23ff8 <__clzdi2+0x24c>
+   104a4:	5ec000ef          	jal	10a90 <printf>
+   104a8:	fec42783          	lw	a5,-20(s0)
+   104ac:	0037979b          	sllw	a5,a5,0x3
+   104b0:	0007879b          	sext.w	a5,a5
+   104b4:	00078593          	mv	a1,a5
+   104b8:	000247b7          	lui	a5,0x24
+   104bc:	00878513          	add	a0,a5,8 # 24008 <__clzdi2+0x25c>
+   104c0:	5d0000ef          	jal	10a90 <printf>
+   104c4:	fe842783          	lw	a5,-24(s0)
+   104c8:	0027d79b          	srlw	a5,a5,0x2
+   104cc:	0007879b          	sext.w	a5,a5
+   104d0:	00078593          	mv	a1,a5
+   104d4:	000247b7          	lui	a5,0x24
+   104d8:	01878513          	add	a0,a5,24 # 24018 <__clzdi2+0x26c>
+   104dc:	5b4000ef          	jal	10a90 <printf>
+   104e0:	00000793          	li	a5,0
+   104e4:	00078513          	mv	a0,a5
+   104e8:	01813083          	ld	ra,24(sp)
+   104ec:	01013403          	ld	s0,16(sp)
+   104f0:	02010113          	add	sp,sp,32
+   104f4:	00008067          	ret
+=====================================================================================================================================
+
+chain/pk/riscv-none-elf/bin/pk ./bubble_sort
+=== RISC-V Proof Header ===
+User: thepasswordisiitdh123
+Host: avinash-HP-Elite-Tower-600-G9-Desktop-PC
+MachineID : bc9fb55347374165
+BuildUTC : 2025-08-05T09:25:11Z
+BuildEpoch : 1754385911
+GCC: 13.2.0
+PointerBits: 64
+Program: bubble_sort
+ProofID: 0xfc96386cce0ecf8c
+RunID: 0xd375e29d55f62e3a
+===========================
+Sorted: 1 2 3 4 5 6 7 8 9
+
+=====================================================================================================================================
+
+000000000001052c <main>:
+   1052c:	fc010113          	add	sp,sp,-64
+   10530:	02113c23          	sd	ra,56(sp)
+   10534:	02813823          	sd	s0,48(sp)
+   10538:	04010413          	add	s0,sp,64
+   1053c:	000247b7          	lui	a5,0x24
+   10540:	0e878513          	add	a0,a5,232 # 240e8 <__clzdi2+0x220>
+   10544:	d29ff0ef          	jal	1026c <uniq_print_header>
+   10548:	000247b7          	lui	a5,0x24
+   1054c:	11078793          	add	a5,a5,272 # 24110 <__clzdi2+0x248>
+   10550:	0007b583          	ld	a1,0(a5)
+   10554:	0087b603          	ld	a2,8(a5)
+   10558:	0107b683          	ld	a3,16(a5)
+   1055c:	0187b703          	ld	a4,24(a5)identityVariablesSet
+   10560:	fcb43023          	sd	a1,-64(s0)
+   10564:	fcc43423          	sd	a2,-56(s0)
+   10568:	fcd43823          	sd	a3,-48(s0)
+   1056c:	fce43c23          	sd	a4,-40(s0)
+   10570:	0207a783          	lw	a5,32(a5)
+   10574:	fef42023          	sw	a5,-32(s0)
+   10578:	00900793          	li	a5,9
+   1057c:	fef42423          	sw	a5,-24(s0)
+   10580:	fe842703          	lw	a4,-24(s0)
+   10584:	fc040793          	add	a5,s0,-64
+   10588:	00070593          	mv	a1,a4
+   1058c:	00078513          	mv	a0,a5
+   10590:	e79ff0ef          	jal	10408 <bubble>
+   10594:	000247b7          	lui	a5,0x24
+   10598:	0f878513          	add	a0,a5,248 # 240f8 <__clzdi2+0x230>
+   1059c:	610000ef          	jal	10bac <printf>
+   105a0:	fe042623          	sw	zero,-20(s0)
+   105a4:	0340006f          	j	105d8 <main+0xac>
+   105a8:	fec42783          	lw	a5,-20(s0)
+   105ac:	00279793          	sll	a5,a5,0x2
+   105b0:	ff078793          	add	a5,a5,-16
+   105b4:	008787b3          	add	a5,a5,s0
+   105b8:	fd07a783          	lw	a5,-48(a5)
+   105bc:	00078593          	mv	a1,a5
+   105c0:	000247b7          	lui	a5,0x24
+   105c4:	10078513          	add	a0,a5,256 # 24100 <__clzdi2+0x238>
+   105c8:	5e4000ef          	jal	10bac <printf>
+   105cc:	fec42783          	lw	a5,-20(s0)
+   105d0:	0017879b          	addw	a5,a5,1
+   105d4:	fef42623          	sw	a5,-20(s0)
+   105d8:	fec42783          	lw	a5,-20(s0)
+   105dc:	00078713          	mv	a4,a5
+   105e0:	fe842783          	lw	a5,-24(s0)
+   105e4:	0007071b          	sext.w	a4,a4
+   105e8:	0007879b          	sext.w	a5,a5
+   105ec:	faf74ee3          	blt	a4,a5,105a8 <main+0x7c>
+   105f0:	000247b7          	lui	a5,0x24
+   105f4:	10878513          	add	a0,a5,264 # 24108 <__clzdi2+0x240>
+   105f8:	72c000ef          	jal	10d24 <puts>
+   105fc:	00000793          	li	a5,0
+   10600:	00078513          	mv	a0,a5
+   10604:	03813083          	ld	ra,56(sp)
+   10608:	03013403          	ld	s0,48(sp)
+   1060c:	04010113          	add	sp,sp,64
+   10610:	00008067          	ret
+=====================================================================================================================================
+
+=== RISC-V Proof Header ===
+User: thepasswordisiitdh123
+Host: avinash-HP-Elite-Tower-600-G9-Desktop-PC
+MachineID : bc9fb55347374165
+BuildUTC : 2025-08-05T09:25:11Z
+BuildEpoch : 1754385911
+GCC: 13.2.0
+PointerBits: 64
+Program: max_array
+ProofID: 0xd26d24d3a058ac13
+RunID: 0x9109b0e0316a04f9
+===========================
+Array length=9, Max=88
+
+=====================================================================================================================================
+
+0000000000010408 <main>:
+   10408:	fc010113          	add	sp,sp,-64
+   1040c:	02113c23          	sd	ra,56(sp)
+   10410:	02813823          	sd	s0,48(sp)
+   10414:	04010413          	add	s0,sp,64
+   10418:	000247b7          	lui	a5,0x24
+   1041c:	fd878513          	add	a0,a5,-40 # 23fd8 <__clzdi2+0x224>
+   10420:	e4dff0ef          	jal	1026c <uniq_print_header>
+   10424:	000247b7          	lui	a5,0x24
+   10428:	00878793          	add	a5,a5,8 # 24008 <__clzdi2+0x254>
+   1042c:	0007b583          	ld	a1,0(a5)
+   10430:	0087b603          	ld	a2,8(a5)
+   10434:	0107b683          	ld	a3,16(a5)
+   10438:	0187b703          	ld	a4,24(a5)
+   1043c:	fcb43023          	sd	a1,-64(s0)
+   10440:	fcc43423          	sd	a2,-56(s0)
+   10444:	fcd43823          	sd	a3,-48(s0)
+   10448:	fce43c23          	sd	a4,-40(s0)
+   1044c:	0207a783          	lw	a5,32(a5)
+   10450:	fef42023          	sw	a5,-32(s0)
+   10454:	00900793          	li	a5,9
+   10458:	fef42223          	sw	a5,-28(s0)
+   1045c:	fc042783          	lw	a5,-64(s0)
+   10460:	fef42623          	sw	a5,-20(s0)
+   10464:	00100793          	li	a5,1
+   10468:	fef42423          	sw	a5,-24(s0)
+   1046c:	0480006f          	j	104b4 <main+0xac>
+   10470:	fe842783          	lw	a5,-24(s0)
+   10474:	00279793          	sll	a5,a5,0x2
+   10478:	ff078793          	add	a5,a5,-16
+   1047c:	008787b3          	add	a5,a5,s0
+   10480:	fd07a703          	lw	a4,-48(a5)
+   10484:	fec42783          	lw	a5,-20(s0)
+   10488:	0007879b          	sext.w	a5,a5
+   1048c:	00e7de63          	bge	a5,a4,104a8 <main+0xa0>
+   10490:	fe842783          	lw	a5,-24(s0)
+   10494:	00279793          	sll	a5,a5,0x2
+   10498:	ff078793          	add	a5,a5,-16
+   1049c:	008787b3          	add	a5,a5,s0
+   104a0:	fd07a783          	lw	a5,-48(a5)
+   104a4:	fef42623          	sw	a5,-20(s0)
+   104a8:	fe842783          	lw	a5,-24(s0)
+   104ac:	0017879b          	addw	a5,a5,1
+   104b0:	fef42423          	sw	a5,-24(s0)
+   104b4:	fe842783          	lw	a5,-24(s0)
+   104b8:	00078713          	mv	a4,a5
+   104bc:	fe442783          	lw	a5,-28(s0)
+   104c0:	0007071b          	sext.w	a4,a4
+   104c4:	0007879b          	sext.w	a5,a5
+   104c8:	faf744e3          	blt	a4,a5,10470 <main+0x68>
+   104cc:	fec42703          	lw	a4,-20(s0)
+   104d0:	fe442783          	lw	a5,-28(s0)
+   104d4:	00070613          	mv	a2,a4
+   104d8:	00078593          	mv	a1,a5
+   104dc:	000247b7          	lui	a5,0x24
+   104e0:	fe878513          	add	a0,a5,-24 # 23fe8 <__clzdi2+0x234>
+   104e4:	5b4000ef          	jal	10a98 <printf>
+   104e8:	00000793          	li	a5,0
+   104ec:	00078513          	mv	a0,a5
+   104f0:	03813083          	ld	ra,56(sp)
+   104f4:	03013403          	ld	s0,48(sp)
+   104f8:	04010113          	add	sp,sp,64
+   104fc:	00008067          	ret
+
+=====================================================================================================================================
