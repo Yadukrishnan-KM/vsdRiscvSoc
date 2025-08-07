@@ -5,6 +5,13 @@
 itory.
 - Ensure outputs are unique to your PC by embedding username, hostname, machine ID, and timestamps.
 
+## Contents
+
+  - [1. Setting up](#1-setting-up)
+  - [2. Build, run, produce assembly and disassembly](#2-build-run-produce-assembly-and-disassembly)
+  - [3. Instruction decoding (integer type)](#3-instruction-decoding-integer-type)
+  - [4. Final results](#4-final-results)
+
 ## 1. Setting up
 
 First we are going to make all the .c and .h files on the local PC which given in the task2.pdf. Then opening the Linux terminal on the **same folder** which we saved the .c and .h file.
@@ -193,7 +200,7 @@ riscv-none-elf-objdump -d ./max_array | sed -n '/<main>:/,/^$/p' | tee max_array
 
 ## 3. Instruction decoding (integer type)
 Here we are decoding some RISC-V integer instructions from the `.s` or `.objdump` file. The below table contains all the decoded values.
-*I taken the reference from a pdf file named [RISC-V Reference.pdf](../../Documents/RISC-V_ref.pdf), it is attached here. It contains all the Instruction sets and registers details.*
+*I taken the reference from a pdf file named [RISC-V Reference.pdf](../../documents/RISC-V_ref.pdf), it is attached here. It contains all the Instruction sets and registers details.*
 
 |Instruction      |Opcode  |rd     |rs1    |rs2     |funct3|funct7 |Binary                          |Description        |
 |-----------------|--------|-------|-------|--------|------|-------|--------------------------------|-------------------|
