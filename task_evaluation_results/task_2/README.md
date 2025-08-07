@@ -193,7 +193,28 @@ riscv-none-elf-objdump -d ./max_array | sed -n '/<main>:/,/^$/p' | tee max_array
 
 ## 3. Instruction decoding (integer type)
 Here we are decoding some RISC-V integer instructions from the `.s` or `.objdump` file. The below table contains all the decoded values.
+*I taken the reference from a pdf file named [RISC-V Reference.pdf](../../Documents/RISC-V_ref.pdf), it is attached here. It contains all the Instruction sets and registers details.*
+
+|Instruction      |Opcode  |rd     |rs1    |rs2     |funct3|funct7 |Binary                          |Description        |
+|-----------------|--------|-------|-------|--------|------|-------|--------------------------------|-------------------|
+|addi sp, sp, -32 |0010011 |sp(x2) |sp(x2) |--------|000   |-------|11111110000000010000000100010011|sp = sp + -32      |
+|lui a5, 0x24     |0110111 |a5(x15)|-------|--------|------|-------|00000000000000100100011110110111|a5 = 0x24 << 12    |
+|lw a5, -20(s0)   |0000011 |a5(x15)|s0(x8) |--------|010   |-------|11111110110001000010011110000011|a5 = M[s0 + -20]   |
+|or a5, a4, a5    |0110011 |a5(x15)|a4(x14)|a5(x15) |110   |0000000|00000000111101110110011110110011|a5 = a4 | a5       |
+|xor a5, a4, a5   |0110011 |a5(x15)|a4(x14)|a5(x15) |100   |0000000|00000000111101110100011110110011|a5 = a4  ^ a5      |
+|mv a4, a5        |0010011 |a4(x14)|a5(x15)|--------|000   |-------|00000000000001111000011100010011|a4 = a5 + 0        |
+|blt a4, a5, 105a8|1100011 |-------|a4(x14)|a5(x15) |100   |-------|11111010111101110100111011100011|if(a4 < a5) PC = 105a8|
+
 
 ## 4. Final results
 
-All the output screenshots and the files are present in the folder named `task_evaluation_results/task2`
+All the output screenshots and the files are present in the folder named `task_evaluation_results/task2` (current folder).
+
+- [bitops_main_asm.png](bitops_main_asm.png)
+- [bitops_output.png](bitops_output.png)
+- [bubble_sort_main_asm.png](bubble_sort_main_asm.png)
+- [bubble_sort_output.png](bubble_sort_output.png)
+- [factorial_main_asm.png](factorial_main_asm.png)
+- [factorial_output.png](factorial_output.png)
+- [max_array_main_asm.png](max_array_main_asm.png)
+- [max_array_output.png](max_array_output.png)
