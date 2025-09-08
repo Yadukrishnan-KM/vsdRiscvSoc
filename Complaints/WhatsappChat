@@ -1,0 +1,228 @@
+26/07/2025, 8:50 pm - Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them. Learn more.
+20/05/2025, 8:44 am - ~ Kunal Ghosh created group "India RISC-V Chip Tapeout"
+26/07/2025, 8:50 pm - You joined using this group's invite link
+26/07/2025, 8:50 pm - Jahnavi Kodakandla VI joined using this group's invite link
+26/07/2025, 8:55 pm - +91 96864 28727: VID-20250727-WA0001.mp4 (file attached)
+Today's Welcome call recording
+26/07/2025, 8:57 pm - +91 96864 28727: Sample documentation format (do not copy as your tasks are a little different than previous cohort tasks)
+https://github.com/rsdsrahul4566/vsdRiscvSoc
+26/07/2025, 9:02 pm - +91 96864 28727: <Media omitted>
+We’re launching the *Unlearn & Relearn CMOS Basics initiative* to address a gap we’ve seen across teams: *textbook MOSFET intuition often diverges from real silicon*. Over 10 cloud‑based days with SKY130 SPICE labs and round‑the‑clock mentor support, we rebuild device‑level instincts the way *Physical Design, STA and ECO flows actually demand*. 
+
+Strong CMOS fundamentals are the building block for every chip design program globally - and a key enabler for India’s Semiconductor Mission. Join the next cohort: https://www.vlsisystemdesign.com/cmos-circuit-design-spice-simulation-using-sky130-technology/
+
+*PS* If you’re confident your CMOS fundamentals already meet rigorous production standards, feel free to pass this along to someone who might benefit.
+26/07/2025, 9:03 pm - +91 96864 28727: this is for *previous cohort* participants
+26/07/2025, 9:06 pm - +91 98790 62209 joined using this group's invite link
+26/07/2025, 9:25 pm - +91 99648 65457: Thanks Kunal for recording the session.
+27/07/2025, 11:19 am - +91 96864 28727: <Media omitted>
+Final call: *Unlearn & Relearn CMOS Basics* - a 10‑day cloud workshop using SKY130. If classroom CMOS hasn’t matched what you face in *PD, STA or ECO*, this program gives a clear, structured way to rebuild the fundamentals the industry expects. 
+
+Designed for students, working engineers and faculty. Enrollment closes tonight at 11:59 PM IST. Join here: 
+https://www.vlsisystemdesign.com/cmos-circuit-design-spice-simulation-using-sky130-technology/
+27/07/2025, 1:33 pm - +91 86602 30031 joined using this group's invite link
+27/07/2025, 2:52 pm - Yadu: Hello sir, 
+Can you please share the task question again. I joined the group late.
+27/07/2025, 4:06 pm - +91 96864 28727: <Media omitted>
+Task1_RISC-V_Toolchain_Tasks_and_Unique_Test.pdf
+27/07/2025, 9:17 pm - +91 96760 99556 was added
+27/07/2025, 9:16 pm - +91 96760 99556 joined using this group's invite link
+28/07/2025, 12:52 pm - +91 96864 28727: IMG-20250728-WA0000.jpg (file attached)
+I’m inviting you to take a decisive step into VLSI. In the past six months, *VSD’s Last Physical Design workshop* has helped 1,000+ learners turn classroom concepts into outcomes—real IPs, interview‑ready timing/area/power reports, and the confidence to speak industry. Several companies now use the same program for internal training.
+
+If you’re curious about chip design or want a practical path to internships and PD/STA roles, this is a strong start. You’ll run an end‑to‑end flow and leave with work you can show.
+
+Last cohort this quarter. Registration closes tomorrow, July 29, 2025 at 11:59 PM IST.
+Enroll: https://www.vlsisystemdesign.com/digital-vlsi-soc-design-and-planning/
+28/07/2025, 2:39 pm - Jahnavi Kodakandla VI: Hello sir,
+Can you please send the procedure for submission? Where will we share the git hub link? Is there any format that we need to follow for documentation in github?
+28/07/2025, 5:32 pm - +91 85112 76891 joined using this group's invite link
+28/07/2025, 6:48 pm - +91 92654 51588 joined using this group's invite link
+29/07/2025, 12:38 pm - +91 96864 28727: VID-20250729-WA0000.mp4 (file attached)
+- A $37 *VSDSquadron FPGA Mini* 
+- A 5K LUT count Lattice FPGA chip
+- 376 razor-focused lines of Verilog Code
+- 2.3K LUTs | 43% Utilization
+- 100% open-source toolchain
+
+That’s all is needed to turn a blank board into a live, self‑navigating maze solver.
+
+This isn’t a cute classroom demo - it’s a wake‑up call. With sub‑₹3 K hardware and zero license fees, a single educator just prototyped an end‑to‑end VLSI project that your interns could replicate on day one. 
+
+*Talent forged on gear like this fine‑tunes proprietary EDA on day one*. Accessible FPGA education is live - are you in?
+30/07/2025, 9:35 pm - +91 96864 28727: anyone facing issues with installation, try using these scripts
+https://github.com/kunalg123/riscv_workshop_collaterals/blob/master/run.sh
+31/07/2025, 5:24 pm - +91 95791 13715 changed to +91 86383 75648
+31/07/2025, 7:01 pm - +91 88259 35076: is anyone facing an issue with the spike installation
+31/07/2025, 7:02 pm - +91 88259 35076: like while compiling i have been receiving the same error again and again
+31/07/2025, 7:30 pm - +91 63511 27759: Yes , I also got the same error and couldn't resolve it
+31/07/2025, 7:31 pm - +91 88259 35076: I am facing an issue with the Proxy kernel where the compiler shows unknown csr like menvcfg and senvcfg
+31/07/2025, 7:32 pm - +91 88259 35076: While trying to run the make command
+31/07/2025, 7:36 pm - +91 94090 34229: it is because the ricsv toolchain provided is older from 2019 version
+31/07/2025, 7:36 pm - +91 94090 34229: while the pk and spike we are pulling are updated with new instruction
+31/07/2025, 7:36 pm - +91 94090 34229: so there are some error coming
+31/07/2025, 7:37 pm - +91 94090 34229: you can try this 
+git clone https://github.com/riscv/riscv-pk.git
+cd riscv-pk
+git checkout v1.0.0 
+mkdir -p build && cd build
+../configure --prefix=$pwd/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14 --host=riscv64-unknown-elf
+make -j$(nproc)
+sudo make install
+cd $pwd/riscv_toolchain
+31/07/2025, 7:38 pm - +91 94090 34229: This message was deleted
+01/08/2025, 10:59 pm - +91 88259 35076: Should we upload the uniqueness_tes file in the GitHub ?
+01/08/2025, 11:00 pm - +91 96864 28727: yes
+code and most importantly, its output
+01/08/2025, 11:00 pm - +91 96864 28727: everyone will get a different output and that's what we will be reviewing 
+no two GitHub repos will be same
+01/08/2025, 11:02 pm - +91 88259 35076: okkk sir
+02/08/2025, 8:53 am - +91 96864 28727: Task2_Local_RISCV_Setup_Check_and_ISA_Decoding.pdf (file attached)
+Task2_Local_RISCV_Setup_Check_and_ISA_Decoding.pdf
+02/08/2025, 8:53 am - ~ Kunal Ghosh pinned a message
+02/08/2025, 10:42 am - +91 96864 28727: <Media omitted>
+Last chance to join the MYTH RISC-V Workshop (*closes tomorrow 11:59 PM IST*).
+
+You’ll design, simulate, and verify a working RV32I core - learning ISA concepts, pipelines, hazards, and load/store the practical way.
+
+*Why it matters:* standout project for campus placements, embedded/VLSI internships, and M.Tech/MS applications.
+
+Seats are limited. Register now: https://www.vlsisystemdesign.com/riscv-based-myth/
+03/08/2025, 2:41 am - +91 89530 56863: This message was deleted
+03/08/2025, 12:02 pm - +91 96864 28727: <Media omitted>
+*Final 14 hours to join the MYTH Q3 cohort. Registration closes tonight at 11:59 PM IST.*
+
+In just ~30 hours, go from C code to hand-written RV32I assembly to a fully pipelined TL-Verilog CPU. You'll build a clean 5-stage core with JAL, branch, LW/SW, and ALU, with forwarding paths and load-use hazard handling built in. Validate everything with an in-memory "sum 1..9" test, fully Spike and QEMU compatible.
+
+This is your chance to get hands-on with mentor support and build a cache-ready, M-extension friendly RISC-V base. Push your limits. Think like silicon.
+
+*Register now:* https://www.vlsisystemdesign.com/riscv-based-myth/
+04/08/2025, 7:58 pm - +91 96864 28727: @everyone - make your GitHub repos public for my team to review
+We will start reviewing this Sunday onwards and release certificates by next week
+05/08/2025, 7:44 am - +91 96864 28727: Congrats @917200250179 - from a simple LED blink to a *full Edge-AI demo* on the VSDSquadron PRO 
+You’ve proved a tiny RISC-V CPU can run real AI inference - no WiFi, GPU, or OS in sight.
+
+If you’ve been waiting to dive in, now’s the moment: our next 2-week internship still has *only 9 boards left*. In just 14 days you’ll boot the board, train a mini model, and watch it classify digits right on-chip.
+Secure your spot (and a board) here: https://www.vlsisystemdesign.com/vsdsquadronPro/ (*only for participants who completed Phase 1 - Week 1*)
+
+Let’s see who turns the next pocket-sized processor into an AI powerhouse!
+05/08/2025, 8:12 am - +91 96864 28727: Here’s the detailed repo (still getting updated)
+
+https://github.com/ShekharShwetank/VSDSquadron_Pro_Edge_AI_Research_Internship
+05/08/2025, 8:31 am - +91 72002 50179: Thank you @919686428727 sir!
+05/08/2025, 8:54 am - +91 96864 28727: no problem
+once you complete, send a write-up mentioning your work and @918668471730 involvement. Will send it to SiFive and other RISC-V companies for jobs or consultation or any other RISC-V work if they are looking for
+06/08/2025, 8:14 pm - +91 96864 28727: <Media omitted>
+Congrats Ahtesham, *a VSD intern from Class 8, Army Public School*, on building 32-bit I&M type RISC-V CPU using VSDSquadron FPGA Mini.  You can read his story here
+
+https://www.linkedin.com/posts/kunal-ghosh-vlsisystemdesign-com-28084836_github-short-demo-activity-7358867739781804033-BPyT?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAeZe4ABRnXXgcvVesykjXO-9WZxOuR05PE
+07/08/2025, 7:50 pm - +91 93512 78770: This message was deleted
+07/08/2025, 7:50 pm - +91 93512 78770: This message was deleted
+07/08/2025, 7:50 pm - +91 93512 78770: This message was deleted
+07/08/2025, 7:50 pm - +91 93512 78770: This message was deleted
+07/08/2025, 7:50 pm - +91 93512 78770: This message was deleted
+07/08/2025, 7:50 pm - +91 93512 78770: This message was deleted
+07/08/2025, 7:50 pm - +91 93512 78770: This message was deleted
+07/08/2025, 7:50 pm - +91 93512 78770: This message was deleted
+07/08/2025, 7:50 pm - +91 93512 78770: This message was deleted
+07/08/2025, 7:50 pm - +91 93512 78770: This message was deleted
+07/08/2025, 7:50 pm - +91 93512 78770: This message was deleted
+07/08/2025, 7:50 pm - +91 93512 78770: This message was deleted
+07/08/2025, 7:51 pm - +91 93512 78770: This message was deleted
+07/08/2025, 7:51 pm - +91 93512 78770: This message was deleted
+07/08/2025, 7:51 pm - +91 93512 78770: This message was deleted
+07/08/2025, 7:51 pm - +91 93512 78770: This message was deleted
+07/08/2025, 7:51 pm - +91 93512 78770: This message was deleted
+08/08/2025, 10:47 am - +91 96864 28727: <Media omitted>
+AI + VLSI = NEXT-GEN DOMINANCE. The architects who merge silicon + intelligence?  They’ll build the future.  
+
+Your shortcut: VSDSquadron PRO Internship  
+- RISC-V dev board shipped to you  
+- Deploy NN on bare metal  
+- Cohort closes in 14hours!  
+
+Last few boards: https://www.vlsisystemdesign.com/vsdsquadronPro/
+
+Sample outcome from previous cohort - https://github.com/ShekharShwetank/VSDSquadron_Pro_Edge_AI_Research_Internship
+09/08/2025, 9:21 am - +91 96864 28727: FYI- 
+We will start reviewing tomorrow
+09/08/2025, 11:58 am - +91 96864 28727: IMG-20250809-WA0000.jpg (file attached)
+Finally, someone said it right.
+
+Very few people know that my background is in manufacturing - Electron Beam Lithography during *M.Tech at IIT Bombay* - where *CMOS Device Physics*, down to the Fermi energy level, was non-negotiable. The deeper I went into physics, the more fascinating it became. *Physics answers many Physical Design and STA questions that start with “Why”*.
+
+For years before AI, it was hard to convince others why physics matters in VLSI. Truth is, device-level physics is what separates a good PD/STA engineer from an exceptional one.
+
+Here’s your chance to scratch the surface. Join this 10-day program and level up your engineering game:
+https://www.vlsisystemdesign.com/cmos-circuit-design-spice-simulation-using-sky130-technology/
+10/08/2025, 9:24 am - +91 96864 28727: @everyone - commit the screenshots into the repo for review
+
+We found repos where images are hosted at "private-user-images.githubusercontent.com" OR not actually committed in the repo (e.g., pasted into Markdown via the web UI, stored as GitHub “comment/issue assets”)
+
+Upload all screenshots by 12pm
+10/08/2025, 10:37 am - +91 94948 42005: Should the screenshots be pasted in the readme?
+10/08/2025, 10:56 am - +91 96864 28727: Upload in a separate folder on GitHub
+10/08/2025, 11:07 am - +91 96864 28727: All repos reviewed. If you need a re-eval, put your feedback on column G stating why you need a review and lock/protect your cell
+https://docs.google.com/spreadsheets/d/1jbNbu24VJ-q4VRW_o1ZrtL0hYfHS1zBfCAB99kRKisQ/edit?usp=sharing
+
+Certificates will be released by tomorrow
+10/08/2025, 11:09 am - +91 96864 28727: Phase 2 will be announced soon (*probably in joint collaboration with some IIT*) - will keep you all posted
+10/08/2025, 11:26 am - +91 96864 28727: This message was deleted
+11/08/2025, 10:46 am - +91 96864 28727: <Media omitted>
+The future of VLSI belongs to those who can think and design at advanced nodes.
+
+Our *FinFET at 7 nm workshop* is your chance to get there - hands-on with ASAP7, Xschem, and Ngspice, mastering NFET/PFET characterization, inverter VTC, and a precision bandgap reference.
+
+Turn 3 years of our research into your career advantage. Join now: https://www.vlsisystemdesign.com/7nm/
+11/08/2025, 8:51 pm - +91 96864 28727: re-eval done
+will be releasing certificates tomorrow or day-after max
+11/08/2025, 8:53 pm - +91 96864 28727: Re-Eval was done by new TAs and was checked from fresh. So high scoring grades might have changed.
+11/08/2025, 9:02 pm - +91 80853 27783: Provide special certificates for top 3 candidates
+11/08/2025, 10:11 pm - Yadu: Respected organisers,
+
+I went through the valuation and revaluation and I found that the valuation is not fair. I made my repository properly by following your instructions. I kept it well documented and did all works sincerely. But to no avail. It seems like they did not check properly and gave some random numbers as result, because even though everything is present, they are telling it is not there. People with nothing in their repository are getting 100% and above 90%. Just by looking we can come to know that it is ChatGPT made. But the valuators are surprisingly not finding it. I don’t think this is a right way to do the evaluation; some mismatch is happening somewhere, please look into it.
+
+I am sure everybody in this group have noticed it, but are keeping calm. I thought somebody should bring the reality out, so I am writing it. I am writing to inform you if you are unaware of what is going on here in the name of evaluation. I am not seeing any value in this course only because of this improper valuation. So, I am glad to exit from this program from myside. Other than that, the format and everything else about this course was commendable. I appreciate the efforts you have put into it.
+
+If the words or sentences hurt anybody. I am really sorry about that. Take it as a frustrated student who came for the program with lot of expectations.  
+
+My repo is open for anyone who wants to see it: https://github.com/Yadukrishnan-KM/vsdRiscvSoc
+
+Thank and regards.
+11/08/2025, 10:12 pm - +91 96864 28727: What is your percentage?
+11/08/2025, 10:12 pm - +91 96864 28727: For others who got 100%, did you check their snapshots?
+11/08/2025, 10:13 pm - +91 96864 28727: Please share the empty repos who received 100% or 90%
+
+Let me take a look
+11/08/2025, 10:16 pm - +91 96864 28727: looks like you got 87% and still not happy with the grades 😊
+
+*Feel free to exit this group* and please let others learn the whole flow in phase 2
+
+Let them be a part of the upcoming exciting tasks
+11/08/2025, 10:29 pm - Jahnavi Kodakandla VI: I have got 42 -> increased to 62 where I have literally done everything and everything is visible and I am still facing the same issue. I would like to inform that these grades are not that much of value in our life. But the course and the efforts we are putting into it is  of value to us.   The fact that you are thinking people are commenting only to increase thier score and not noticing the unfairness happening tells that you are not looking into the issue and just trying to kick out somebody who is telling you the problem happening. It shows that you are not growth oriented. I am totally agreeing with the student above.
+11/08/2025, 10:31 pm - +91 96864 28727: share your repo link
+let me check
+11/08/2025, 10:35 pm - +91 96864 28727: <Media omitted>
+Your repo had many broken image links so was difficult for CI to check the outputs.
+11/08/2025, 10:35 pm - Jahnavi Kodakandla VI: I did not come here for marks only. I came for learning RISC-V. But I am getting different kind of lessons here. Somebody is pointing out some problem, you are kicking them out and making fun of it. Maybe some people will look for marks but not everyone.  We want to learn and nothing more than that.
+11/08/2025, 10:35 pm - +91 94090 34229: Sir but if you do it for one person you will need to do it for many more. Instead include all students even those who got less grade not because they might not be able to create a well maintained repo or produce all output but because they tried and gave effort into this course or program as those students will try as hard as they can to learn many things.
+11/08/2025, 10:35 pm - +91 96864 28727: <Media omitted>
+And looks like it was clearly mentioned in your feedback
+11/08/2025, 10:36 pm - +91 96864 28727: @9191******** so what's the issue? feedbacks for images was given here
+11/08/2025, 10:37 pm - +91 96864 28727: *Please feel free to exit the group* and let others move to Phase 2
+11/08/2025, 10:37 pm - +91 96864 28727: any issue with your grades?
+11/08/2025, 10:38 pm - Jahnavi Kodakandla VI: It is openable. I checked even without signing in to github. I am able to open it.  You can check in folder as well it is present
+11/08/2025, 10:38 pm - +91 96864 28727: @9191******** this was the issue reported and everyone was asked to do so
+11/08/2025, 10:39 pm - +91 94090 34229: No sir i dont have any issue with my grades
+11/08/2025, 10:39 pm - +91 96864 28727: anyone else has issue with grades?
+11/08/2025, 10:40 pm - Jahnavi Kodakandla VI: <Media omitted>
+It is right there.
+11/08/2025, 10:41 pm - +91 96864 28727: so we said we will take a look if its already there
+All you guys had to do was ask
+11/08/2025, 10:41 pm - +91 96864 28727: @9191******** @9194********
+*Please Leave The group* as we need to move to Phase 2 smoothly
+11/08/2025, 10:42 pm - ~ Kunal Ghosh removed you
+11/08/2025, 10:44 pm - Yadu: I am not going to leave. I am going to complain in higher authority with all the screenshots because of your agressiveness.
+11/08/2025, 10:44 pm - ERROR: can't send to this group, not a member
+
+
